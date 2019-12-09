@@ -1,0 +1,39 @@
+<!--<html lang="en">-->
+<!--  <body>-->
+<!--    <form action="/users" method="post" accept-charset="UTF-8">-->
+<!--      Username: <input type="text" name="user[username]"><br>-->
+<!--      Password: <input type="text" name="user[password]"><br>-->
+<!--      Email: <input type="text" name="user[email]"><br>-->
+<!--      <input type="submit" value="Submit">-->
+<!--      <input type="hidden" name="authenticity_token" value="<%#= form_authenticity_token %>">-->
+<!--    </form>-->
+<!--  </body>-->
+
+<!--</html>-->
+<%#= form_tag("/users", method: "post") do %>
+  <%#= label_tag(:username, "Username:") %>
+<!--  <%#= text_field_tag(:username) %><br>-->
+
+  <%#= label_tag(:password, "Password:")  %>
+<!--  <%#= text_field_tag(:password) %><br>-->
+
+  <%#= label_tag(:email, "Email:") %>
+<!--  <%#= text_field_tag(:email) %><br>-->
+
+  <%#= submit_tag("Submit") %>
+<%# end %>
+
+<%= form_for @user do |f| %>
+
+  <%= f.label :username %>
+  <%= f.text_field :username %><br>
+
+  <%= f.label :password %>
+  <%= f.text_field :password %><br>
+
+  <%= f.label :email %>
+  <%= f.text_field :email, placeholder: "example@example.com" %><br>
+
+  <%= f.submit "Submit" %>
+
+<% end %>
